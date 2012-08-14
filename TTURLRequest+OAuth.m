@@ -267,7 +267,7 @@
                                httpMethod:(NSString *)httpMethod
                                   urlPath:(NSString *)urlPath {
 
-    NSMutableDictionary *HTTPAuthorization = [parameters mutableCopy];
+    NSMutableDictionary *HTTPAuthorization = [[parameters mutableCopy] autorelease];
     if (consumerKey) [HTTPAuthorization setObject:consumerKey forKey:@"oauth_consumer_key"];
     if (accessToken) [HTTPAuthorization setObject:accessToken forKey:@"oauth_token"];
     [HTTPAuthorization setObject:[[TTURLRequest class] stringForSignatureMethod:signatureMethod] forKey:@"oauth_signature_method"];
